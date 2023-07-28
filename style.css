@@ -1,0 +1,93 @@
+:root{
+    --text-color: rgb(200, 228, 252);
+    --font-family: droid-monospace;
+}
+
+@font-face {
+    font-family: droid-monospace;
+    src: url(assets/DroidSansMono.ttf);
+}
+
+body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: black;
+}
+
+#left{
+    position: relative;
+}
+
+#left > img{
+    position: relative;
+    height: 100vh;
+    width: 35vw;
+    top: 0;
+    left: 0;
+}
+
+#logo span{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 2rem;
+}
+
+#left p{
+    position: absolute;
+    bottom: 5px;
+    left: 160px;
+    color: aliceblue;
+}
+
+a{
+    color: var(--text-color);
+}
+
+.intro{
+    padding: 20px;
+    margin-top: 40px;
+    margin-left: 50px;
+    font-size: 1.2rem;
+}
+
+#right p{
+    overflow-wrap: break-word;
+    width: 800px;
+}
+
+form{
+    padding: 20px;
+    margin-left: 50px;
+}
+
+.form-body{
+    width: 50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+h1{
+    margin-bottom: 50px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-btn{
+    margin-top: 60px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: var(--text-color);
+    height: 35px;
+    width: 170px;
+    font-family: var(--font-family);
+    font-weight: bolder;
+}
