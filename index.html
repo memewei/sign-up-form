@@ -3,15 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign Up | memewei™</title>
+        <title>Sign Up | Amethyne Corp.</title>
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
     </head>
     <body>
         <div id="left">
             <img src="images/mountain.jpg" alt="mountain">
             <div id="logo">
-                <span>[memewei]</span>
+                <span>Amethyne Corp.</span>
             </div>
             <p>Photo by <a href="https://unsplash.com/@simonfitall?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon Fitall</a> on <a href="https://unsplash.com/photos/tvleqH3p1os?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
             </p>
@@ -48,12 +47,15 @@
                     </div>
                     <div class="details" id="password">
                         <label for="pwd">PASSWORD</label>
-                        <input type="pwd" name="password" id="pwd" />
+                        <input type="password" name="password" id="pwd" />
                         <div class="error"></div>
+                        <div id="toggle">
+                            <input type="checkbox" name="show-pwd" id="show-pwd" onclick="togglePassword()" />Show password
+                        </div>
                     </div>
                     <div class="details" id="confirm-password">
                         <label for="cfm-pwd">CONFIRM PASSWORD</label>
-                        <input type="pwd" name="cfm-pwd" id="cfm-pwd" />
+                        <input type="password" name="cfm-pwd" id="cfm-pwd" />
                         <div class="error"></div>
                     </div>
                 </div>
@@ -65,5 +67,6 @@
                 </div>
             </form>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
