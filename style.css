@@ -1,139 +1,144 @@
-:root{
-    --text-color: white;
-    --accent-color: rgb(230, 230, 250);
-    --secondary-color: rgb(193, 185, 217);
-    --primary-color: rgb(112, 41, 99);
-    --font-family: droid-monospace;
+:root {
+  --text-color: white;
+  --accent-color: rgb(230, 230, 250);
+  --secondary-color: rgb(193, 185, 217);
+  --primary-color: rgb(112, 41, 99);
+  --font-family: droid-monospace;
 }
 
 @font-face {
-    font-family: droid-monospace;
-    src: url(assets/DroidSansMono.ttf);
+  font-family: droid-monospace;
+  src: url(assets/DroidSansMono.ttf);
 }
 
-body{
-    display: flex;
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-family);
-    color: var(--text-color);
-    background-color: black;
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: black;
 }
 
-#left{
-    position: relative;
+#left {
+  position: relative;
 }
 
-#left > img{
-    position: relative;
-    height: 100vh;
-    width: 35vw;
-    top: 0;
-    left: 0;
-    filter: hue-rotate(60deg);
+#left > img {
+  position: relative;
+  height: 100vh;
+  width: 35vw;
+  top: 0;
+  left: 0;
+  filter: hue-rotate(60deg);
 }
 
-#logo span{
-    color: white;
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 2rem;
+#logo span {
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 2rem;
 }
 
-#left p{
-    position: absolute;
-    bottom: 5px;
-    left: 160px;
-    color: aliceblue;
-    font-size: 1rem;
+#left p {
+  position: absolute;
+  bottom: 5px;
+  left: 160px;
+  color: aliceblue;
+  font-size: 1rem;
 }
 
-a{
-    color: var(--text-color);
+a {
+  color: var(--text-color);
 }
 
-.intro{
-    padding: 20px;
-    margin-top: 40px;
-    margin-left: 50px;
-    font-size: 1.2rem;
+.intro {
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: 50px;
+  font-size: 1.2rem;
 }
 
-#right p{
-    overflow-wrap: break-word;
-    width: 800px;
+#right p {
+  overflow-wrap: break-word;
+  width: 800px;
 }
 
-form{
-    padding: 20px;
-    margin-left: 50px;
+form {
+  padding: 20px;
+  margin-left: 50px;
 }
 
-.form-body{
-    width: 50vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+.form-body {
+  width: 50vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
 }
 
-h1{
-    margin-bottom: 50px;
+h1 {
+  margin-bottom: 50px;
 }
 
-.details{
-    display: flex;
-    flex-direction: column;
+.details {
+  display: flex;
+  flex-direction: column;
 }
 
-input{
-    display: block;
-    border-radius: 8px;
-    border: 0;
-    border-bottom: 1px solid var(--text-color);
-    background-color: black;
-    height: 30px;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-family: var(--font-family);
+input {
+  display: block;
+  border-radius: 8px;
+  border: 0;
+  border-bottom: 1px solid var(--text-color);
+  background-color: black;
+  height: 30px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: var(--font-family);
 }
 
-.submit-btn{
-    margin-top: 60px;
-    border: 2px solid var(--text-color);
-    border-radius: 8px;
-    background-color: var(--text-color);
-    height: 35px;
-    width: 170px;
-    font-family: var(--font-family);
-    font-weight: bolder;
-    font-size: .9rem;
+.submit-btn {
+  margin-top: 60px;
+  border: 2px solid var(--text-color);
+  border-radius: 8px;
+  background-color: var(--text-color);
+  height: 35px;
+  width: 170px;
+  font-family: var(--font-family);
+  font-weight: bolder;
+  font-size: 0.9rem;
 }
 
-input::placeholder{
-    content: none;
+input::placeholder {
+  content: none;
 }
 
-input:focus{
-    border: 2px solid white;
-    box-shadow: 0 0 5px var(--text-color);
-    outline: none;
+input:focus {
+  border: 2px solid white;
+  box-shadow: 0 0 5px var(--text-color);
+  outline: none;
 }
 
-.error{
-    color: red;
-    font-family: var(--font-family);
-    text-transform: none;
-    overflow: hidden;
-    margin-top: 5px;
+.error {
+  color: red;
+  font-family: var(--font-family);
+  text-transform: none;
+  overflow: hidden;
+  margin-top: 5px;
 }
 
-#toggle{
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
+.error.active{
+  padding: .3rem;
 }
 
-#show-pwd{
-    padding: 10px;
+#toggle {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
 }
+
+#show-pwd {
+  padding: 10px;
+}
+

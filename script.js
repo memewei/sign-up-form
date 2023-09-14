@@ -1,53 +1,105 @@
-const submitBtn = document.querySelector('.submit-btn');
-const phoneNum = document.querySelector('#phone-number');
-const password = document.querySelector('#password');
-const passwordConfirm = document.querySelector('#confirm-password');
-const email = document.querySelector('#email');
-const lastName = document.querySelector('#last-name');
-const firstName = document.querySelector('#first-name');
-const error = document.getElementsByClassName('error');
-const input = document.querySelectorAll('input');
-const details = document.querySelector('.form-body');
+const submitBtn = document.querySelector(".submit-btn");
+const phoneNum = document.getElementById("number");
+const password = document.getElementById("pwd");
+const passwordConfirm = document.getElementById("cfm-pwd");
+const email = document.getElementById("mail");
+const lastName = document.getElementById("last-name");
+const firstName = document.getElementById("first-name");
+const error = document.querySelectorAll("#error");
+const input = document.querySelectorAll("input");
+const form = document.querySelector("form");
+const emailError = document.querySelector("#email-error.error");
+const phoneNumError = document.querySelector("#number-error.error");
+const passwordMatchError = document.querySelector("#cfm-pwd-error.error");
 
-let count = 0;
+email.addEventListener("input", (e)=>{
+  if(email.validity.valid){
+    emailError.textContent = "";
+    emailError.className = "error";
+    email.style.color = "var(--text-color)";
+  }else{
+    showEmailError();
+  }
+});
 
-function validate(current, string, bool){
-    let message = current;
-    message.textContent = string;
-    bool != 0 ? ++count : count;
+phoneNum.addEventListener("input", (e)=>{
+  if(phoneNum.validity.valid){
+    phoneNumError.textContent = "";
+    phoneNumError.className = "error";
+    phoneNum.style.color = "var(--text-color)";
+  }else{
+    showPhoneNumError();
+  }
+});
+
+passwordConfirm.addEventListener("keyup", (e)=>{
+  if(password.value === passwordConfirm.value){
+    passwordMatchError.textContent = "";
+    passwordMatchError.className = "error";
+    passwordMatchError.style.color = "var(--text-color)";
+  }else{
+    showPasswordMatchError();
+  }
+})
+
+form.addEventListener("submit", (e)=>{
+  if(!email.validity.valid){
+    showEmailError();
+    e.preventDefault();
+  }
+  if(!phoneNum.validity.valid){
+    showPhoneNumError();
+    e.preventDefault();
+  }
+  if(password !==  passwordConfirm){
+    showPasswordMatchError();
+    e.preventDefault();
+  }
+  form.reset();
+});
+
+function showEmailError(){
+  if(email.validity.valueMissing){
+    emailError.textContent = "An email is required!";
+  }else if(email.validity.typeMismatch){
+    emailError.textContent = "It needs to be an email address!";
+  }
+  emailError.className = "error active";
+  email.style.color = "red";
+
 }
 
-for(let i=0; i<input.length; i++){
-    let currentInput = input[i];
-    let currentError = error[i];
-
-    currentInput.addEventListener('keyup', (e) =>{
-        let message = currentError;
-        e.target.value != "" ? validate(currentError, "", 0) : validate(currentError, "*required", 0);
-    });
+function showPhoneNumError(){
+  if(phoneNum.validity.valueMissing){
+    phoneNumError.textContent = "Are you a boomer...? Do you not have a phone?";
+  }else if(phoneNum.validity.patternMismatch){
+    phoneNumError.textContent = "Follow the format! XXX-XX-XXX";
+  }
+  phoneNumError.className = "error active";
+  phoneNum.style.color = "red";
 }
 
-firstName.addEventListener('keyup', (e) =>{
-    let message = error[0];
-    var regex = /^[0-9]+$/;
-    e.target.value != regex ? validate(message, "", 1) : validate(message, "Are you a robot????", 0);
-});
+function showPasswordMatchError(){
+  if(passwordConfirm.validity.valueMissing){
+    passwordMatchError.textContent = "Dude, confirm your password!";
+  }else if(password.value !== passwordConfirm.value){
+    passwordMatchError.textContent = "Hey! Key it properly!";
+  }
+  passwordMatchError.className = "error active";
+  passwordMatchError.style.color = "red";
+}
 
-lastName.addEventListener('keyup', (e) =>{
-    let message = error[1];
-    var regex = /^[0-9]+$/;
-    e.target.value != regex ? validate(message, "", 1) : validate(message, "Are you a robot????", 0);
-});
-
-phoneNum.addEventListener('keyup', (e) =>{
-    let message = error[3];
-});
-
-function togglePassword(){
-    var passwordKey = document.getElementById("password");
-    if(passwordKey.type === "password"){
-        password.type = "text";
-    }else{
-        passwordKey.type = "password";
-    }
+function togglePassword() {
+  var passwordKey = document.getElementById("pwd");
+  if (passwordKey.type === "password") {
+    password.type = "text";
+  } else {
+    passwordKey.type = "password";
+  }
+  var cfmPwd = document.getElementById("cfm-pwd");
+  if(cfmPwd.type === "password"){
+    cfmPwd.type = "text";
+  }else{
+    cfmPwd.type = "password";
+  }
 }
